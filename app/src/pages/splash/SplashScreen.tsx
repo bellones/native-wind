@@ -1,13 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
-
+import Animated from 'react-native-reanimated';
 import { AppStatusBar } from '../../components/StatusBar';
-
-import Animated, {
-  FadeIn,
-  useSharedValue,
-  withSpring
-} from 'react-native-reanimated';
-import { responsiveHeight } from '../../utils/dimensions';
 import {
   Background,
   Logo,
@@ -19,29 +13,21 @@ import {
   backgroundColorAmber,
   logo,
   styles,
-} from './hooks/constants';
+} from '../../hooks/constants';
+import useSplashViewModel from '../../hooks/splash/useSplashViewModel';
 
 export const SplashScreen: React.FC = () => {
-  const scaleRingOne = useSharedValue(0);
-  const scaleRingTwo = useSharedValue(0);
-  const scaleLogo = useSharedValue(0);
+
+  const {
+    scaleRingOne,
+    scaleRingTwo,
+    scaleLogo,
+    load,
+  } = useSplashViewModel();
 
   useEffect(() => {
-    scaleRingOne.value = 0;
-    scaleRingTwo.value = 0;
-    scaleLogo.value = 0;
-    setTimeout(() => {
-      scaleRingOne.value = withSpring(scaleRingOne.value + responsiveHeight(5));
-    }, 100);
-    setTimeout(() => {
-      scaleLogo.value = withSpring(scaleLogo.value + responsiveHeight(24));
-    }, 200);
-    setTimeout(() => {
-      scaleRingTwo.value = withSpring(
-        scaleRingTwo.value + responsiveHeight(5.5),
-      );
-    }, 300);
-  }, [scaleRingOne, scaleRingTwo, scaleLogo]);
+    load();
+  }, [load]);
 
   return (
     <Background className="flex-1 justify-center items-center bg-amber-400 h-full">
@@ -49,10 +35,10 @@ export const SplashScreen: React.FC = () => {
         <AppStatusBar backgroundColor={backgroundColorAmber} />
 
         <Row className="flex justify-center items-center flex-row mb-8">
-          <Title className="text-black text-4xl" style={styles.poppinsBold}>
+          <Title className="text-black text-4xl" style={styles.poppinsRegular}>
             Jampa
           </Title>
-          <Title className="text-white text-4xl" style={styles.poppinsBold}>
+          <Title className="text-white text-4xl" style={styles.poppinsRegular}>
             Services
           </Title>
         </Row>
@@ -71,16 +57,23 @@ export const SplashScreen: React.FC = () => {
         </RingOne>
 
         <NormalText
-          entering={FadeIn}
-          className="text-white text-4xl text-center mt-8"
+          className="text-black text-3xl text-center mt-8"
           style={styles.poppinsSemiBold}>
           Procurou? achou!
         </NormalText>
-        <NormalText
-          className="text-black text-sm text-center mt-4"
-          style={styles.poppinsMedium}>
-          Todos os tipos de profissionais em um só lugar
-        </NormalText>
+        <Row className="flex justify-center items-center flex-row mb-8">
+          <NormalText
+            className="text-black text-md text-center mt-4 mr-1"
+            style={styles.poppinsMedium}>
+            Todos os tipos de profissionais
+          </NormalText>
+
+          <NormalText
+            className="text-white text-md text-center mt-4"
+            style={styles.poppinsBold}>
+            em um só lugar
+          </NormalText>
+        </Row>
       </Animated.View>
     </Background>
   );
