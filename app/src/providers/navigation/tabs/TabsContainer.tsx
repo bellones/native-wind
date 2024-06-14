@@ -2,13 +2,12 @@
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-
 import {
-    HomeModernIcon,
-    MagnifyingGlassIcon,
-    ShoppingBagIcon,
-    UserIcon,
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
 } from 'react-native-heroicons/outline';
+import Feather from 'react-native-vector-icons/Feather';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { HomeScreen } from '../../../pages/home/HomeScreen';
 import { OrderScreen } from '../../../pages/order/OrderScreen';
 import { ProfileScreen } from '../../../pages/profile/ProfileScreen';
@@ -25,15 +24,15 @@ export const TabsContainer: React.FC = () => {
   const tabBarOptions = (size: number, color: string, routeName: string) => {
     switch (routeName) {
       case 'Home':
-        return <HomeModernIcon size={size} color={color} />;
+        return <SimpleLineIcons name={'home'} size={size} color={color} />;
       case 'Buscar':
         return <MagnifyingGlassIcon size={size} color={color} />;
       case 'Pedidos':
         return <ShoppingBagIcon size={size} color={color} />;
       case 'Perfil':
-        return <UserIcon size={size} color={color} />;
+        return <Feather name={'user'} size={size} color={color} />;
       default:
-        return <HomeModernIcon size={size} color={color} />;
+        return <SimpleLineIcons name={'home'} size={size} color={color} />;
     }
   };
 
