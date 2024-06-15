@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect } from 'react';
+import React from 'react';
 import Animated from 'react-native-reanimated';
 import { AppStatusBar } from '../../components/StatusBar';
 import useSplashViewModel from '../../hooks/splash/useSplashViewModel';
@@ -22,12 +22,7 @@ export const SplashScreen: React.FC = () => {
     scaleRingOne,
     scaleRingTwo,
     scaleLogo,
-    load,
   } = useSplashViewModel();
-
-  useEffect(() => {
-    load();
-  }, [load]);
 
   return (
     <Background className="flex-1 justify-center items-center bg-amber-400 h-full">
@@ -35,10 +30,10 @@ export const SplashScreen: React.FC = () => {
         <AppStatusBar backgroundColor={backgroundColorAmber} />
 
         <Row className="flex justify-center items-center flex-row mb-8">
-          <Title className="text-black text-4xl" style={styles.poppinsRegular}>
+          <Title className="text-black" style={[styles.poppinsRegular, styles.titletext]}>
             Jampa
           </Title>
-          <Title className="text-white text-4xl" style={styles.poppinsRegular}>
+          <Title className="text-white" style={[styles.poppinsRegular, styles.titletext]}>
             Services
           </Title>
         </Row>
@@ -58,19 +53,19 @@ export const SplashScreen: React.FC = () => {
 
         <NormalText
           className="text-black text-3xl text-center mt-8"
-          style={styles.poppinsSemiBold}>
+          style={[styles.poppinsSemiBold, styles.upperText]}>
           Procurou? achou!
         </NormalText>
         <Row className="flex justify-center items-center flex-row mb-8">
           <NormalText
             className="text-black text-md text-center mt-4 mr-1"
-            style={styles.poppinsMedium}>
+            style={[styles.poppinsMedium, styles.normaltext]}>
             Todos os tipos de profissionais
           </NormalText>
 
           <NormalText
             className="text-white text-md text-center mt-4"
-            style={styles.poppinsBold}>
+            style={[styles.poppinsBold, styles.normaltext]}>
             em um só lugar
           </NormalText>
         </Row>
