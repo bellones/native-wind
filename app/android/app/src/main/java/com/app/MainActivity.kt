@@ -1,4 +1,4 @@
-package com.jampaservices.app
+com.jampaservices.app.jampaservices
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
