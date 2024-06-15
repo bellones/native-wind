@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Animated from 'react-native-reanimated';
 import { AppStatusBar } from '../../components/StatusBar';
+import useSplashViewModel from '../../hooks/splash/useSplashViewModel';
 import {
   Background,
   Logo,
@@ -13,8 +14,7 @@ import {
   backgroundColorAmber,
   logo,
   styles,
-} from '../../hooks/constants';
-import useSplashViewModel from '../../hooks/splash/useSplashViewModel';
+} from '../../utils/constants';
 
 export const SplashScreen: React.FC = () => {
 
