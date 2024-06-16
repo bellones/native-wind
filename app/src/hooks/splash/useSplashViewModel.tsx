@@ -24,7 +24,6 @@ const useSplashViewModel = () => {
 
   const navigateTo = setTimeout(() => {
     const user = auth().currentUser;
-    console.log('user', user);
     if (user) {
       navigation.navigate('Tabs' as never);
       return;
@@ -51,7 +50,7 @@ const useSplashViewModel = () => {
         navigateTo,
       ];
 
-      timeoutsToClear.forEach(timeoutId => {
+      timeoutsToClear.flatMap(timeoutId => {
         clearTimeout(timeoutId);
       });
     };
