@@ -30,6 +30,9 @@ export const styles = StyleSheet.create({
   upperText: {
     fontSize: responsiveWidth(8),
   },
+  backText: {
+    fontSize: responsiveWidth(6),
+  },
   normaltext : {
     fontSize: responsiveWidth(3.2),
     fontWeight: 'normal',
@@ -47,6 +50,16 @@ export const styles = StyleSheet.create({
     marginRight: 12,
     height: responsiveHeight(2),
     width: responsiveWidth(2),
+  },
+  backIcon: {
+    color: 'black',
+  },
+
+  paddingGlobal: {
+    padding: responsiveHeight(2),
+  },
+  globalWidth: {
+    width: responsiveWidth(91),
   },
 
 

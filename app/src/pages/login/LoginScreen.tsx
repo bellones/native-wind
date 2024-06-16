@@ -16,7 +16,7 @@ import { LoginForm } from './components/LoginForm';
 
 export const LoginScreen: React.FC = () => {
   return (
-    <Background className="flex-1 justify-center items-center bg-white h-full">
+  <Background className="flex-1 justify-center items-center bg-white h-full" style={styles.paddingGlobal}>
       <AppStatusBar />
       <ScrollView scrollEnabled horizontal={false}>
         <SafeContainer className="justify-center items-center">

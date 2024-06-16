@@ -4,8 +4,8 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Pressable, Text } from 'react-native';
 import { LockClosedIcon, LockOpenIcon } from 'react-native-heroicons/outline';
-import useLoginViewModel from '../../../hooks/login/useLoginViewModel';
-import { LoginFormValuesType } from '../../../types/login/login_form_type';
+import useCreateAccountViewModel from '../../../hooks/create-account/useCreateAccountViewModel';
+import { CreateAccountFormType } from '../../../types/create_account/create_account_form_type';
 import {
   Button,
   Container,
@@ -13,25 +13,24 @@ import {
   InputContainer,
   Inputbox,
   NormalText,
-  Row,
   styles,
 } from '../../../utils/constants';
 import { responsiveHeight } from '../../../utils/dimensions';
-import { SCHEMA } from '../validation';
+import { SCHEMA } from '../validations';
 
-export const LoginForm: React.FC = () => {
-  const {control, handleSubmit, formState} = useForm<LoginFormValuesType>({
+export const CreateAccountForm: React.FC = () => {
+  const {control, handleSubmit, formState} = useForm<CreateAccountFormType>({
     resolver: yupResolver(SCHEMA) as any,
   });
 
   const {
-    handleLogin,
-    isLoading,
     handleVisible,
     isVisible,
-    navigateToForgotPassword,
-    navigateToRegister,
-  } = useLoginViewModel(handleSubmit);
+    isConfirmationVisible,
+    handleConfirmationVisible,
+    handleRegister,
+    isLoading,
+  } = useCreateAccountViewModel(handleSubmit);
   return (
     <Container className="flex" style={styles.globalWidth}>
       <InputContainer className="flex mb-4">
@@ -67,7 +66,7 @@ export const LoginForm: React.FC = () => {
           </Text>
         )}
       </InputContainer>
-      <InputContainer>
+      <InputContainer className="flex mb-4">
         <NormalText
           className="text-black mb-1 ml-1"
           style={[styles.callText, styles.poppinsRegular]}>
@@ -108,43 +107,61 @@ export const LoginForm: React.FC = () => {
           </Text>
         )}
       </InputContainer>
-      <Row className="flex-row justify-end mr-2">
-        <Pressable onPress={navigateToForgotPassword}>
-          <NormalText
-            className="text-amber-600 mb-2 mt-2 ml-1 underline"
-            style={[styles.normaltext, styles.poppinsSemiBold]}>
-            Esqueceu a senha?
-          </NormalText>
-        </Pressable>
-      </Row>
 
+      <InputContainer className="flex mb-4">
+        <NormalText
+          className="text-black mb-1 ml-1"
+          style={[styles.callText, styles.poppinsRegular]}>
+          Confirme sua Senha:
+        </NormalText>
+        <Inputbox
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
+          style={{height: responsiveHeight(6)}}>
+          <Controller
+            control={control}
+            render={({field: {onChange, value}}) => (
+              <>
+                <Input
+                  className="flex-1 p-4"
+                  keyboardType="default"
+                  secureTextEntry={isConfirmationVisible}
+                  onChangeText={onChange}
+                  value={value}
+                  placeholder="Confirme sua senha"
+                  style={[styles.poppinsRegular, styles.normaltext]}
+                />
+                <Pressable onPress={handleConfirmationVisible}>
+                  {isConfirmationVisible ? (
+                    <LockClosedIcon style={styles.rigthIcon} />
+                  ) : (
+                    <LockOpenIcon style={styles.rigthIcon} />
+                  )}
+                </Pressable>
+              </>
+            )}
+            name="confirmPassword"
+            defaultValue=""
+          />
+        </Inputbox>
+        {!!formState.errors.confirmPassword && (
+          <Text style={styles.errorMessage}>
+            {formState.errors.confirmPassword.message}
+          </Text>
+        )}
+      </InputContainer>
       <Button
-        className="bg-amber-500 rounded-xl h-14 items-center justify-center mt-8 bottom-0"
-        onPress={handleLogin}>
+        className="bg-amber-500 rounded-xl h-14 items-center justify-center mt-8 "
+        onPress={handleRegister}>
         {isLoading ? (
           <ActivityIndicator color={'white'} />
         ) : (
           <NormalText
             className="text-white"
             style={[styles.callText, styles.poppinsBold]}>
-            LOGIN
+            REGISTRAR
           </NormalText>
         )}
       </Button>
-      <Row className="flex-row justify-center mt-8 px-1">
-        <Pressable onPress={navigateToRegister}>
-          <NormalText
-            className="text-black mb-2 mt-2 ml-1 mr-1"
-            style={[styles.normaltext, styles.poppinsSemiBold]}>
-            Ainda não tem uma conta?{' '}
-            <NormalText
-              className="text-amber-600 mb-2 mt-2 underline"
-              style={[styles.normaltext, styles.poppinsSemiBold]}>
-              Cadastre-se
-            </NormalText>
-          </NormalText>
-        </Pressable>
-      </Row>
     </Container>
   );
 };

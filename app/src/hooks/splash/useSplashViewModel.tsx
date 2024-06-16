@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import auth from '@react-native-firebase/auth';
-import { useNavigation } from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { useSharedValue, withSpring } from 'react-native-reanimated';
 import { responsiveHeight } from '../../utils/dimensions';
@@ -24,12 +24,14 @@ const useSplashViewModel = () => {
 
   const navigateTo = setTimeout(() => {
     const user = auth().currentUser;
-    if (user) {
-      navigation.navigate('Tabs' as never);
-      return;
-    }
-    navigation.navigate('Login' as never);
+    user ? handleNavigate('Tabs') : handleNavigate('Login');
   }, 2000);
+
+  const handleNavigate = (route: string) => {
+    navigation.dispatch(
+      StackActions.replace(route)
+    );
+  };
 
   useEffect(() => {
     const load = async () => {
