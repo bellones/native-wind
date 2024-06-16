@@ -1,4 +1,4 @@
-package com.jampaservices.app
+com.jampaservices.app.jampaservices
 
 import android.app.Application
 import com.facebook.react.PackageList

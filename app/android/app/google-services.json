@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065116566399",
+    "project_id": "jampaservices-298a2",
+    "storage_bucket": "jampaservices-298a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065116566399:android:96a2b1e9a76ba9ed36904a",
+        "android_client_info": {
+          "package_name": "com.jampaservices.app.jampaservices"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCKt8nzr4pYpOkseaOUflC5X3m5gC7QH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
