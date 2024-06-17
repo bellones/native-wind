@@ -7,13 +7,13 @@ import { ActivityIndicator, Text } from 'react-native';
 import useForgotPasswordViewModel from '../../../hooks/forgot-password/useForgotPasswordViewModel';
 import { ForgotPassFormType } from '../../../types/recoverpass/recover_pass_form_type';
 import {
-    Button,
-    Container,
-    Input,
-    InputContainer,
-    Inputbox,
-    NormalText,
-    styles,
+  Button,
+  Container,
+  Input,
+  InputContainer,
+  Inputbox,
+  NormalText,
+  styles,
 } from '../../../utils/constants';
 import { responsiveHeight } from '../../../utils/dimensions';
 import { SCHEMA } from '../validations';
@@ -42,6 +42,7 @@ const ForgotPasswordForm: React.FC = () => {
                 <Input
                   className="flex-1 p-4"
                   keyboardType="email-address"
+                  autoCapitalize="none"
                   onChangeText={onChange}
                   value={value}
                   placeholder="Digite seu email"
