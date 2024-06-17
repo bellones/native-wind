@@ -24,7 +24,7 @@ const useSplashViewModel = () => {
 
   const navigateTo = setTimeout(async () => {
     const user = await getCurrentUser();
-    !user ? handleNavigate('Tabs') : handleNavigate('Login');
+    user ? handleNavigate('Tabs') : handleNavigate('Login');
   }, 2000);
 
   const handleNavigate = (route: string) => {
