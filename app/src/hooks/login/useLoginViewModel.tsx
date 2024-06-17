@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { useNavigation } from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { UseFormHandleSubmit } from 'react-hook-form';
+import { signIn } from '../../services/user/userService';
 import { LoginFormValuesType } from '../../types/login/login_form_type';
 import { useLoadingRequest } from '../../utils/useLoadingRequest';
 
@@ -22,10 +23,13 @@ const useLoginViewModel =  (handleSubmit: UseFormHandleSubmit<LoginFormValuesTyp
   };
   const {apiRequest: handleLogin, isLoading} = useLoadingRequest({
     apiFunc: handleSubmit( async (values: LoginFormValuesType) => {
-      console.log('values', values);
+    await signIn(values.email, values.password);
+      navigation.dispatch(
+        StackActions.replace('Tabs')
+      );
     }),
     errorFunc: err => {
-      console.log('err', err);
+      console.log('mim gostar batata', err);
     },
   });
 
