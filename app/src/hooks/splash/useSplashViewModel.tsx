@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
-import auth from '@react-native-firebase/auth';
 import { StackActions, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { useSharedValue, withSpring } from 'react-native-reanimated';
+import { getCurrentUser } from '../../services/user/userService';
 import { responsiveHeight } from '../../utils/dimensions';
 
 const useSplashViewModel = () => {
@@ -22,9 +22,9 @@ const useSplashViewModel = () => {
     scaleRingTwo.value = withSpring(scaleRingTwo.value + responsiveHeight(5.5));
   }, 300);
 
-  const navigateTo = setTimeout(() => {
-    const user = auth().currentUser;
-    user ? handleNavigate('Tabs') : handleNavigate('Login');
+  const navigateTo = setTimeout(async () => {
+    const user = await getCurrentUser();
+    !user ? handleNavigate('Tabs') : handleNavigate('Login');
   }, 2000);
 
   const handleNavigate = (route: string) => {

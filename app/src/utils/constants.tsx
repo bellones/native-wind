@@ -52,6 +52,7 @@ export const styles = StyleSheet.create({
     width: responsiveWidth(2),
   },
   backIcon: {
+    width: responsiveWidth(6),
     color: 'black',
   },
 
