@@ -15,7 +15,6 @@ import {
   NormalText,
   styles,
 } from '../../../utils/constants';
-import { responsiveHeight } from '../../../utils/dimensions';
 import { SCHEMA } from '../validations';
 
 export const CreateAccountForm: React.FC = () => {
@@ -40,14 +39,13 @@ export const CreateAccountForm: React.FC = () => {
           Email:
         </NormalText>
         <Inputbox
-          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
-          style={{height: responsiveHeight(6)}}>
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4 h-12">
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 p-4"
+                  className="flex-1 ml-2"
                   keyboardType="email-address"
                   onChangeText={onChange}
                   autoCapitalize="none"
@@ -74,14 +72,13 @@ export const CreateAccountForm: React.FC = () => {
           Senha:
         </NormalText>
         <Inputbox
-          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
-          style={{height: responsiveHeight(6)}}>
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4 h-12">
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 p-4"
+                  className="flex-1 ml-2"
                   keyboardType="default"
                   secureTextEntry={isVisible}
                   onChangeText={onChange}
@@ -116,14 +113,13 @@ export const CreateAccountForm: React.FC = () => {
           Confirme sua Senha:
         </NormalText>
         <Inputbox
-          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
-          style={{height: responsiveHeight(6)}}>
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4 h-12">
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 p-4"
+                  className="flex-1 ml-2"
                   keyboardType="default"
                   secureTextEntry={isConfirmationVisible}
                   onChangeText={onChange}
@@ -151,7 +147,7 @@ export const CreateAccountForm: React.FC = () => {
         )}
       </InputContainer>
       <Button
-        className="bg-amber-500 rounded-xl h-14 items-center justify-center mt-8 "
+        className="bg-amber-500 rounded-xl h-12 items-center justify-center mt-4 "
         onPress={handleRegister}>
         {isLoading ? (
           <ActivityIndicator color={'white'} />

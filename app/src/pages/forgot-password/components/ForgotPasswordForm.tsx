@@ -15,7 +15,6 @@ import {
   NormalText,
   styles,
 } from '../../../utils/constants';
-import { responsiveHeight } from '../../../utils/dimensions';
 import { SCHEMA } from '../validations';
 
 const ForgotPasswordForm: React.FC = () => {
@@ -33,14 +32,13 @@ const ForgotPasswordForm: React.FC = () => {
           Email:
         </NormalText>
         <Inputbox
-          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
-          style={{height: responsiveHeight(6)}}>
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4 h-12">
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 p-4"
+                  className="flex-1 pl-2"
                   keyboardType="email-address"
                   autoCapitalize="none"
                   onChangeText={onChange}
@@ -61,7 +59,7 @@ const ForgotPasswordForm: React.FC = () => {
         )}
       </InputContainer>
       <Button
-        className="bg-amber-500 rounded-xl h-14 items-center justify-center mt-8 "
+        className="bg-amber-500 rounded-xl h-12 items-center justify-center mt-8 "
         onPress={handleRecover}>
         {isLoading ? (
           <ActivityIndicator color={'white'} />

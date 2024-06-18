@@ -14,7 +14,7 @@ export const ForgotPasswordScreen: React.FC = () => {
         <KeyboardAwareScrollView scrollEnabled horizontal={false} showsVerticalScrollIndicator={false}>
           <Title
             className="text-amber-500 mt-2"
-            style={[styles.poppinsRegular, styles.upperText]}>
+            style={[styles.poppinsRegular, styles.backText]}>
             Recupere sua Senha
           </Title>
           <NormalText className="text-neutral-600 mb-4 text-justify mt-4">
