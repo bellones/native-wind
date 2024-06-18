@@ -14,7 +14,7 @@ export const ProfileScreen: React.FC = () => {
       <SafeContainer>
         <View>
         <Button
-        className="bg-amber-500 rounded-xl h-14 items-center justify-center mt-8 "
+        className="bg-amber-500 rounded-xl h-12 items-center justify-center mt-8 "
         onPress={handleLogoff}>
         {isLoading ? (
           <ActivityIndicator color={'white'} />
