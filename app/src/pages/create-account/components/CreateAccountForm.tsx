@@ -50,6 +50,7 @@ export const CreateAccountForm: React.FC = () => {
                   className="flex-1 p-4"
                   keyboardType="email-address"
                   onChangeText={onChange}
+                  autoCapitalize="none"
                   value={value}
                   placeholder="Digite seu email"
                   style={[styles.poppinsRegular, styles.normaltext]}

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AppStatusBar } from '../../components/StatusBar';
 import {
   Background,
@@ -18,7 +18,7 @@ export const LoginScreen: React.FC = () => {
   return (
   <Background className="flex-1 justify-center items-center bg-white h-full" style={styles.paddingGlobal}>
       <AppStatusBar />
-      <ScrollView scrollEnabled horizontal={false}>
+      <KeyboardAwareScrollView scrollEnabled horizontal={false} showsVerticalScrollIndicator={false}>
         <SafeContainer className="justify-center items-center">
           <Row className="justify-center items-center flex-row mb-8 mt-8">
             <Title
@@ -39,7 +39,7 @@ export const LoginScreen: React.FC = () => {
           />
           <LoginForm />
         </SafeContainer>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </Background>
   );
 };

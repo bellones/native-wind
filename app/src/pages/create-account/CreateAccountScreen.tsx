@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { BackButton } from '../../components/BackButton';
 import {
   Background,
@@ -16,7 +16,7 @@ export const CreateAccountScreen: React.FC = () => {
     <Background className="flex-1 bg-white h-full" style={styles.paddingGlobal}>
       <SafeContainer>
         <BackButton />
-        <ScrollView scrollEnabled horizontal={false}>
+        <KeyboardAwareScrollView scrollEnabled horizontal={false} showsVerticalScrollIndicator={false}>
           <Title
             className="text-amber-500 mt-2"
             style={[styles.poppinsRegular, styles.upperText]}>
@@ -26,7 +26,7 @@ export const CreateAccountScreen: React.FC = () => {
             Preencha os campos abaixo para criar sua conta
           </NormalText>
           <CreateAccountForm />
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>
   );

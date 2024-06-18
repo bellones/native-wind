@@ -1,17 +1,22 @@
 /* eslint-disable prettier/prettier */
-import {
-  doc,
-  getDoc,
-} from '@react-native-firebase/firestore';
 
 import auth from '@react-native-firebase/auth';
 import { userCollection } from '..';
 import { UserEnum, UserType } from '../../types/user/user_type';
 
 
-export const getUser = async (id: string) => {
-  const user = await getDoc(doc(userCollection, id));
-  return user.data();
+export const getUser = async () => {
+  const user = await getCurrentUser();
+  if (!user) {
+    return;
+  }
+  const profile = await userCollection.where('authId', '==', user.uid).limit(1).get();
+  if (profile.empty) {
+    return;
+  }
+  const itemDoc = profile.docs[0];
+  const data  = {...itemDoc.data(), id: itemDoc.id, email: user.email};
+  return data as UserType;
 };
 export const createUser = async (email: string, password: string): Promise<void> => {
     const userCredential = await auth().createUserWithEmailAndPassword(

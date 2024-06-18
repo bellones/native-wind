@@ -50,6 +50,7 @@ export const LoginForm: React.FC = () => {
                 <Input
                   className="flex-1 p-4"
                   keyboardType="email-address"
+                  autoCapitalize="none"
                   onChangeText={onChange}
                   value={value}
                   placeholder="Digite seu email"
