@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { styled } from 'nativewind';
-import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, Pressable, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { responsiveHeight, responsiveWidth } from './dimensions';
 
@@ -62,6 +62,10 @@ export const styles = StyleSheet.create({
   globalWidth: {
     width: responsiveWidth(91),
   },
+  normalWidth: {
+    width: responsiveWidth(70),
+  },
+
 
 
 });
@@ -72,3 +76,5 @@ export const Inputbox = styled(View);
 export const InputContainer = styled(View);
 export const Input = styled(TextInput);
 export const Button = styled(TouchableOpacity);
+export const Avatar = styled(Image);
+export const IconButton =  styled(Pressable);

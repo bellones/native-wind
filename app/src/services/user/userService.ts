@@ -15,7 +15,8 @@ export const getUser = async () => {
     return;
   }
   const itemDoc = profile.docs[0];
-  return itemDoc.data() as UserType;
+  const data  = {...itemDoc.data(), id: itemDoc.id, email: user.email};
+  return data as UserType;
 };
 export const createUser = async (email: string, password: string): Promise<void> => {
     const userCredential = await auth().createUserWithEmailAndPassword(

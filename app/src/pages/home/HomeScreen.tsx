@@ -1,23 +1,20 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Text, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import useUserStore from '../../stores/user/userStore';
+import useHomeViewModel from '../../hooks/home/useHomeViewModel';
 import { Background, SafeContainer, styles } from '../../utils/constants';
+import { UserHomeTile } from './components/UserHomeTile';
 
 export const HomeScreen: React.FC = () => {
-
-  const user = useUserStore(state => state.user);
-  console.log(user);
-
+  const  {
+    userItemStore,
+  } = useHomeViewModel();
   return (
     <Background className="flex-1 bg-white h-full" style={styles.paddingGlobal}>
       <SafeContainer>
         <KeyboardAwareScrollView scrollEnabled horizontal={false} showsVerticalScrollIndicator={false}>
-        <View>
-          <Text>Batat</Text>
-        </View>
-        </KeyboardAwareScrollView>
+          <UserHomeTile user={userItemStore} />
+          </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>
   );
