@@ -27,12 +27,12 @@ const useLoginViewModel =  (handleSubmit: UseFormHandleSubmit<LoginFormValuesTyp
     await signIn(values.email, values.password);
       const user =  await getUser();
       if (user) {
-        console.log(user, 'banana');
         setUser(user);
+        navigation.dispatch(
+          StackActions.replace('Tabs')
+        );
       }
-      navigation.dispatch(
-        StackActions.replace('Tabs')
-      );
+
     }),
     errorFunc: err => {
       console.log(err);
