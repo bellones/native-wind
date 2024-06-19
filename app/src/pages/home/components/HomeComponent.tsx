@@ -1,22 +1,23 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import {
-  Background,
-  SafeContainer,
-} from '../../utils/constants';
-import { HomeComponent } from './components/HomeComponent';
+import { Background, SafeContainer } from '../../../utils/constants';
+import { Banner } from './Banner';
+import { UserHomeTile } from './UserHomeTile';
 
-export const HomeScreen: React.FC = () => {
 
-  console.log('render');
+
+export const HomeComponent: React.FC = () => {
+
   return (
-    <Background className={'flex-1 bg-white h-full'}>
+    <Background className="flex-1 bg-white h-full">
       <SafeContainer>
         <KeyboardAwareScrollView
           scrollEnabled
           horizontal={false}
-          showsVerticalScrollIndicator={false}><HomeComponent />
+          showsVerticalScrollIndicator={false}>
+          <UserHomeTile />
+          <Banner />
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>

@@ -3,12 +3,12 @@ import { StackActions, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { UseFormHandleSubmit } from 'react-hook-form';
 import { getUser, signIn } from '../../services/user/userService';
-import useUserStore from '../../stores/user/userStore';
 import { LoginFormValuesType } from '../../types/login/login_form_type';
 import { useLoadingRequest } from '../../utils/useLoadingRequest';
+import useHomeViewModel from '../home/useHomeViewModel';
 const useLoginViewModel =  (handleSubmit: UseFormHandleSubmit<LoginFormValuesType, undefined>) => {
   const navigation = useNavigation();
-  const setUser = useUserStore(state => state.setUser);
+  const {initialize} = useHomeViewModel();
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -27,7 +27,7 @@ const useLoginViewModel =  (handleSubmit: UseFormHandleSubmit<LoginFormValuesTyp
     await signIn(values.email, values.password);
       const user =  await getUser();
       if (user) {
-        setUser(user);
+        await initialize();
         navigation.dispatch(
           StackActions.replace('Tabs')
         );

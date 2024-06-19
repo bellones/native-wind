@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { BellIcon } from 'react-native-heroicons/outline';
-import { UserType } from '../../../types/user/user_type';
+import useUserStore from '../../../stores/user/userStore';
 import {
   Avatar,
   Container,
@@ -13,14 +13,14 @@ import {
 } from '../../../utils/constants';
 import { responsiveWidth } from '../../../utils/dimensions';
 
-interface Props {
-  user: UserType | null;
-}
 
-export const UserHomeTile = ({user}: Props) => {
+export const UserHomeTile = () => {
+
+
+  const user = useUserStore((state)=> state.user);
 
   return (
-    <Row className="flex-row mb-8 mt-2 items-center">
+    <Row className="flex-row mb-2 mt-2 items-center" style={styles.paddingGlobal}>
       <Avatar
         className="rounded-full w-10 h-10"
         source={{
