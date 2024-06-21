@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable prettier/prettier */
 import { StackActions, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { useSharedValue, withSpring } from 'react-native-reanimated';
 import { getCurrentUser } from '../../services/user/userService';
 import { responsiveHeight } from '../../utils/dimensions';
+import useHomeViewModel from '../home/useHomeViewModel';
 
 const useSplashViewModel = () => {
   const scaleRingOne = useSharedValue(0);
@@ -11,60 +13,55 @@ const useSplashViewModel = () => {
   const scaleLogo = useSharedValue(0);
   const navigation = useNavigation();
 
+  const {initialize} = useHomeViewModel();
+
   const intervalOne = setTimeout(() => {
-    scaleRingOne.value = withSpring(scaleRingOne.value + responsiveHeight(5));
+    scaleRingOne.value = withSpring(scaleRingOne.value + responsiveHeight(3));
   }, 100);
 
   const intervalTwo = setTimeout(() => {
-    scaleLogo.value = withSpring(scaleLogo.value + responsiveHeight(24));
+    scaleLogo.value = withSpring(scaleLogo.value + responsiveHeight(10));
   }, 200);
   const intervalThree = setTimeout(() => {
-    scaleRingTwo.value = withSpring(scaleRingTwo.value + responsiveHeight(5.5));
+    scaleRingTwo.value = withSpring(scaleRingTwo.value + responsiveHeight(4));
   }, 300);
 
-  const navigateTo = setTimeout(async () => {
-    const user = await getCurrentUser();
-    user ? handleNavigate('Tabs') : handleNavigate('Login');
-  }, 2000);
 
-  const handleNavigate = (route: string) => {
-    navigation.dispatch(
-      StackActions.replace(route)
-    );
-  };
+
 
   useEffect(() => {
-    const load = async () => {
+    const navigateTo = async () => {
       scaleRingOne.value = 0;
       scaleRingTwo.value = 0;
       scaleLogo.value = 0;
       intervalOne;
       intervalTwo;
       intervalThree;
-      navigateTo;
+      const user = await getCurrentUser();
+      if(!user) {
+        navigation.dispatch(
+          StackActions.replace('Login')
+        );
+      } else {
+        await initialize();
+        navigation.dispatch(
+          StackActions.replace('Tabs')
+        );
+      }
     };
-    load();
+    navigateTo();
     return () => {
       const timeoutsToClear = [
         intervalOne,
         intervalTwo,
         intervalThree,
-        navigateTo,
       ];
 
       timeoutsToClear.flatMap(timeoutId => {
         clearTimeout(timeoutId);
       });
     };
-  }, [
-    intervalOne,
-    intervalThree,
-    intervalTwo,
-    navigateTo,
-    scaleLogo,
-    scaleRingOne,
-    scaleRingTwo,
-  ]);
+  }, []);
 
   return {scaleRingOne, scaleRingTwo, scaleLogo};
 };

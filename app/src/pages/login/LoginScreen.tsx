@@ -11,7 +11,6 @@ import {
   logo,
   styles,
 } from '../../utils/constants';
-import { responsiveHeight, responsiveWidth } from '../../utils/dimensions';
 import { LoginForm } from './components/LoginForm';
 
 export const LoginScreen: React.FC = () => {
@@ -20,7 +19,7 @@ export const LoginScreen: React.FC = () => {
       <AppStatusBar />
       <KeyboardAwareScrollView scrollEnabled horizontal={false} showsVerticalScrollIndicator={false}>
         <SafeContainer className="justify-center items-center">
-          <Row className="justify-center items-center flex-row mb-8 mt-8">
+          <Row className="justify-center items-center flex-row mb-8">
             <Title
               className="text-black"
               style={[styles.poppinsRegular, styles.upperText]}>
@@ -34,8 +33,8 @@ export const LoginScreen: React.FC = () => {
           </Row>
           <Logo
             source={logo}
-            className="align-middle"
-            style={{height: responsiveHeight(11), width: responsiveWidth(32)}}
+            className="align-middle h-24 w-24"
+
           />
           <LoginForm />
         </SafeContainer>

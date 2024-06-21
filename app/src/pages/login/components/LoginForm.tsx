@@ -16,7 +16,6 @@ import {
   Row,
   styles,
 } from '../../../utils/constants';
-import { responsiveHeight } from '../../../utils/dimensions';
 import { SCHEMA } from '../validation';
 
 export const LoginForm: React.FC = () => {
@@ -41,14 +40,13 @@ export const LoginForm: React.FC = () => {
           Email:
         </NormalText>
         <Inputbox
-          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
-          style={{height: responsiveHeight(6)}}>
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4 h-12">
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 p-4"
+                  className="flex-1 pl-2"
                   keyboardType="email-address"
                   autoCapitalize="none"
                   onChangeText={onChange}
@@ -75,14 +73,13 @@ export const LoginForm: React.FC = () => {
           Senha:
         </NormalText>
         <Inputbox
-          className="flex-row bg-neutral-100 items-center rounded-xl mb-4"
-          style={{height: responsiveHeight(6)}}>
+          className="flex-row bg-neutral-100 items-center rounded-xl mb-4 h-12">
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 p-4"
+                  className="flex-1 pl-2"
                   keyboardType="default"
                   secureTextEntry={isVisible}
                   onChangeText={onChange}
@@ -120,7 +117,7 @@ export const LoginForm: React.FC = () => {
       </Row>
 
       <Button
-        className="bg-amber-500 rounded-xl h-14 items-center justify-center mt-8 bottom-0"
+        className="bg-amber-500 rounded-xl h-12 items-center justify-center mt-8 bottom-0"
         onPress={handleLogin}>
         {isLoading ? (
           <ActivityIndicator color={'white'} />

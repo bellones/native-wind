@@ -3,8 +3,6 @@
 import auth from '@react-native-firebase/auth';
 import { userCollection } from '..';
 import { UserEnum, UserType } from '../../types/user/user_type';
-
-
 export const getUser = async () => {
   const user = await getCurrentUser();
   if (!user) {
@@ -64,7 +62,6 @@ export const updateProfile = async (data: UserType): Promise<void> => {
     const itemDoc = profile.docs[0];
     await itemDoc.ref.update(data);
 };
-
 export const recoverPassword = async (email: string) => {
   await auth().sendPasswordResetEmail(email);
 };

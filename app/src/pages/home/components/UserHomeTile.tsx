@@ -1,27 +1,25 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { BellIcon } from 'react-native-heroicons/outline';
-import { UserType } from '../../../types/user/user_type';
+import useUserStore from '../../../stores/user/userStore';
 import {
-    Avatar,
-    Container,
-    IconButton,
-    NormalText,
-    Row,
-    Title,
-    styles,
+  Avatar,
+  Container,
+  IconButton,
+  NormalText,
+  Row,
+  Title,
+  styles,
 } from '../../../utils/constants';
 import { responsiveWidth } from '../../../utils/dimensions';
 
-interface Props {
-  user: UserType | null;
-}
 
-export const UserHomeTile = ({user}: Props) => {
+export const UserHomeTile = () => {
+  const user = useUserStore((state)=> state.user);
   return (
-    <Row className="flex-row mb-8 mt-2 items-center">
+    <Row className="flex-row mb-2 mt-2 items-center" style={styles.paddingGlobal}>
       <Avatar
-        className="rounded-full w-12 h-12"
+        className="rounded-full w-10 h-10"
         source={{
           uri:
             user?.photo ??
@@ -30,12 +28,12 @@ export const UserHomeTile = ({user}: Props) => {
       />
       <Container style={styles.normalWidth}>
         <Title
-          className="text-xl text-amber-500 ml-2"
+          className="text-md text-amber-500 ml-2"
           style={styles.poppinsRegular}>
           {user?.name ?? 'Usuário jampa'}
         </Title>
         <NormalText
-          className="text-md ml-3 text-neutral-600"
+          className="text-xs ml-3 text-neutral-600"
           style={styles.poppinsSemiBold}>
           {user?.email ?? 'email@jampaservices.com.br'}
         </NormalText>
