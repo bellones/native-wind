@@ -3,6 +3,7 @@ import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Background, SafeContainer } from '../../../utils/constants';
 import { Banner } from './Banner';
+import { Categories } from './Categories';
 import { UserHomeTile } from './UserHomeTile';
 
 
@@ -18,6 +19,7 @@ export const HomeComponent: React.FC = () => {
           showsVerticalScrollIndicator={false}>
           <UserHomeTile />
           <Banner />
+          <Categories />
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>

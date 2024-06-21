@@ -20,6 +20,6 @@ export const getBanners = async (): Promise<BannerType[]> => {
 };
 
 export const getImageBanner = async (url: string): Promise<string> => {
-  const downloadURL = await storage().ref(`/${url}`).getDownloadURL();
+  const downloadURL = await storage().ref(`banner/${url}`).getDownloadURL();
   return downloadURL;
 };

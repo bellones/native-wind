@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { styled } from 'nativewind';
-import { ActivityIndicator, FlatList, Image, Pressable, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, Pressable, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { responsiveHeight, responsiveWidth } from './dimensions';
 
@@ -65,6 +65,22 @@ export const styles = StyleSheet.create({
   normalWidth: {
     width: responsiveWidth(78),
   },
+  categoriesHeight: {
+    height: 64,
+  },
+  categoryActive : {
+    fontSize : 12,
+    fontFamily: 'Poppins-SemiBold',
+    color: '#FFC107',
+  },
+  categoryInactive : {
+    fontSize : 12,
+    fontFamily: 'Poppins-SemiBold',
+    color: 'rgba(0,0,0,0.6)',
+  },
+  categoryItemHeight: {
+    height: 42,
+  },
 
 
 
@@ -81,3 +97,6 @@ export const IconButton =  styled(Pressable);
 export const List = styled(FlatList);
 export const BannerImage  = styled(Image);
 export const Loading = styled(ActivityIndicator);
+export const HomeCategory = styled(View);
+export const CategoryItem = styled(TouchableOpacity);
+export const CategoryText = styled(Text);

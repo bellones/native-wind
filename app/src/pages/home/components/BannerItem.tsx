@@ -14,7 +14,7 @@ export const BannerItem: React.FC<Props> = ({banner}) => {
     <Pressable onPress={handlePress}>
       <BannerImage
         alt="Banner"
-        className="w-72 h-32 mr-4 rounded-xl"
+        className="w-80 h-40 mr-4 rounded-xl"
         source={{uri: banner.image}}
       />
     </Pressable>

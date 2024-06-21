@@ -15,10 +15,7 @@ import { responsiveWidth } from '../../../utils/dimensions';
 
 
 export const UserHomeTile = () => {
-
-
   const user = useUserStore((state)=> state.user);
-
   return (
     <Row className="flex-row mb-2 mt-2 items-center" style={styles.paddingGlobal}>
       <Avatar
