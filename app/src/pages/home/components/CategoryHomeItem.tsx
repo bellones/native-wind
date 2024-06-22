@@ -9,20 +9,21 @@ import {
 
 type Props = {
   category: CategoryType;
+  activeCategory: CategoryType | null;
+  setActiveCategory: (category: CategoryType) => void;
   index: number;
 };
-export const CategoryHomeItem: React.FC<Props> = ({category, index}) => {
-  // let isActive = category.active;
-  let activeButtonClass = index === 0 ? 'bg-white shadow' : '';
+export const CategoryHomeItem: React.FC<Props> = ({category, index, activeCategory, setActiveCategory}) => {
+  let activeButtonClass = activeCategory?.id === category.id  ? 'bg-white shadow' : '';
   return (
     <CategoryItem
-      onPress={() => {}}
+      onPress={setActiveCategory.bind(null, category)}
       key={index}
       style={styles.categoryItemHeight}
-      className={`p-3 px-2 mb-4 mt-4 mr-2 rounded-full flex ${activeButtonClass}`}>
+      className={`p-3 px-2 mt-4 mr-2 rounded-full flex mb-2 ${activeButtonClass}`}>
       <CategoryText
         className="font-semibold"
-        style={index === 0 ? styles.categoryActive : styles.categoryInactive}>
+        style={activeCategory?.id === category.id ? styles.categoryActive : styles.categoryInactive}>
         {category.name}
       </CategoryText>
     </CategoryItem>

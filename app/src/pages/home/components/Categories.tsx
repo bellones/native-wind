@@ -8,19 +8,21 @@ import { CategoryHomeItem } from './CategoryHomeItem';
 
 export const Categories: React.FC = () => {
   const category = useCategoryStore(state => state.categories);
+  const activeCategory = useCategoryStore(state => state.activeCategory);
+  const setActiveCategory = useCategoryStore(state => state.setActiveCategory);
   return (
     <>
       <Title
-        className="text-2xl font-semibold px-6 mt-6"
+        className="text-2xl font-semibold px-4 mt-6 text-black"
         style={styles.poppinsRegular}>
         Categorias
       </Title>
-      <HomeCategory className="flex-row justify-around items-center mx-2 rounded-full px-4">
+      <HomeCategory className="flex-row justify-around items-centerrounded-full px-3">
         <FlatList
           data={category}
           keyExtractor={item => item.id}
           renderItem={({item, index}) => (
-            <CategoryHomeItem category={item} index={index} />
+            <CategoryHomeItem category={item} index={index} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
