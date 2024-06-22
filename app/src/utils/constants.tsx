@@ -81,6 +81,10 @@ export const styles = StyleSheet.create({
   categoryItemHeight: {
     height: 42,
   },
+  textButtonColor: {
+    color: '#FFC107',
+  },
+
 
 
 
@@ -94,9 +98,11 @@ export const Input = styled(TextInput);
 export const Button = styled(TouchableOpacity);
 export const Avatar = styled(Image);
 export const IconButton =  styled(Pressable);
+export const TextButton = styled(Pressable);
 export const List = styled(FlatList);
 export const BannerImage  = styled(Image);
 export const Loading = styled(ActivityIndicator);
 export const HomeCategory = styled(View);
 export const CategoryItem = styled(TouchableOpacity);
 export const CategoryText = styled(Text);
+export const CommonImage = styled(Image);

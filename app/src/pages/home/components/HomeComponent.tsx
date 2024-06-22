@@ -4,6 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { Background, SafeContainer } from '../../../utils/constants';
 import { Banner } from './Banner';
 import { Categories } from './Categories';
+import { CategoryHome } from './CategoryHome';
 import { UserHomeTile } from './UserHomeTile';
 
 
@@ -20,6 +21,7 @@ export const HomeComponent: React.FC = () => {
           <UserHomeTile />
           <Banner />
           <Categories />
+          <CategoryHome />
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>

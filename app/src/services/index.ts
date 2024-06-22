@@ -4,3 +4,7 @@ export const db = getFirestore();
 export const userCollection = collection(db, 'user');
 export const bannerCollection = collection(db, 'banner');
 export const categoryCollection = collection(db, 'category');
+export const professionalCollection = collection(db, 'professional');
+export const professionalCategoryCollection = collection(db, 'professionalCategory');
+export const professionalRatingCollection = collection(db, 'professionalRating');
+

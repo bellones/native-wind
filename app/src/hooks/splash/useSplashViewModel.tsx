@@ -38,6 +38,7 @@ const useSplashViewModel = () => {
       intervalTwo;
       intervalThree;
       const user = await getCurrentUser();
+
       if(!user) {
         navigation.dispatch(
           StackActions.replace('Login')
