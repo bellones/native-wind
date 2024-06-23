@@ -60,7 +60,7 @@ const useHomeViewModel = () => {
         const exists = addedItens?.find(
           item => item.id === addedItem.id,
         );
-        if (!exists && addedItens.length < 3) {
+        if (!exists && addedItens.length < 5) {
           addedItens.push(addedItem);
         }
       }

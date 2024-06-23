@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { styled } from 'nativewind';
 import { ActivityIndicator, FlatList, Image, Pressable, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Animated from 'react-native-reanimated';
 import { responsiveHeight, responsiveWidth } from './dimensions';
 
@@ -100,9 +101,9 @@ export const Avatar = styled(Image);
 export const IconButton =  styled(Pressable);
 export const TextButton = styled(Pressable);
 export const List = styled(FlatList);
-export const BannerImage  = styled(Image);
+export const BannerImage  = styled(FastImage);
 export const Loading = styled(ActivityIndicator);
 export const HomeCategory = styled(View);
 export const CategoryItem = styled(TouchableOpacity);
 export const CategoryText = styled(Text);
-export const CommonImage = styled(Image);
+export const CommonImage = styled(FastImage);
