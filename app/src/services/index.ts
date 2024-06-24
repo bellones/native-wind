@@ -7,4 +7,5 @@ export const categoryCollection = collection(db, 'category');
 export const professionalCollection = collection(db, 'professional');
 export const professionalCategoryCollection = collection(db, 'professionalCategory');
 export const professionalRatingCollection = collection(db, 'professionalRating');
+export const addressCollection = collection(db, 'address');
 

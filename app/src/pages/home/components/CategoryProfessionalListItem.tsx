@@ -11,12 +11,18 @@ type Props = {
 export const CategoryProfessionalListItem: React.FC<Props> = ({
   professional,
 }) => {
+
+
+
   return (
     <Container className="w-40 justify-center mb-4">
       <CommonImage
-        source={{uri: professional?.image,priority: FastImage.priority.normal}}
-        resizeMode={FastImage.resizeMode.contain}
-        className="w-36 h-48 rounded-md mx-4"
+        source={{uri: professional?.image,
+         priority: FastImage.priority.normal,
+
+        }}
+        resizeMode={FastImage.resizeMode.cover}
+        className="w-36 h-40 rounded-md mx-4"
       />
       <Title className="text-md font-semibold text-black mt-2 ml-4" style={styles.poppinsSemiBold}>
         {professional?.name}

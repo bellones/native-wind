@@ -5,7 +5,8 @@ import { useCategoryStore } from '../../../stores';
 import { CategoryProfessional } from './CategoryProfessional';
 
 export const CategoryHome: React.FC = () => {
- const homeCategories = useCategoryStore(state => state.homeCategories);
+
+const homeCategories = useCategoryStore((state) => state.homeCategories);
 
 
   return (
