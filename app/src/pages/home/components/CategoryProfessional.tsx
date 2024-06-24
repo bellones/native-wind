@@ -16,7 +16,7 @@ export const CategoryProfessional: React.FC<Props> = ({category}) => {
     <Title
         className="text-2xl font-semibold px-4 mt-4 mb-4 text-black"
         style={styles.poppinsRegular}>
-        {category.name}
+        {category?.name}
       </Title>
       <TextButton>
 
@@ -24,7 +24,7 @@ export const CategoryProfessional: React.FC<Props> = ({category}) => {
       </TextButton>
       </Row>
       <List
-        data={category.professionals}
+        data={category?.professionals}
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => `${item}${index}`}

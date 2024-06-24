@@ -9,6 +9,7 @@ import { CategoryHome } from './CategoryHome';
 
 
 
+
 export const HomeComponent: React.FC = () => {
 
   return (

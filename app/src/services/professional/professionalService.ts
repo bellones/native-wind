@@ -2,6 +2,7 @@
 import { and, or, query, where } from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 import { professionalCategoryCollection, professionalCollection } from '..';
+import { CategoryType } from '../../types/category/category_type';
 import { ProfessionalCategoryType, ProfessionalType } from '../../types/professional/professional_type';
 
 export const createProfessional = async (professional: ProfessionalType) => {
@@ -41,7 +42,17 @@ export const getProfessionalByCategory = async (categoryId: string): Promise<Pro
   return itemData.map((item) => item.data() as ProfessionalType);
 };
 
+export const getProfessionalListHome = async (categories: CategoryType[]) :Promise<CategoryType[]> => {
 
+const data =  categories.map(async (category) => {
+  const professionals = await professionalCollection.where('speciality', '==', category.name).get();
+  category.professionals = professionals.docs.map(professional => professional.data() as ProfessionalType);
+  return category;
+});
+
+return await Promise.all(data);
+
+};
 
 export const getProfessionalBySpeciality = async (speciality: string) => {
     const professionals = await professionalCollection.where('speciality', '==', speciality).get();
