@@ -8,15 +8,16 @@ import {
 import { HomeComponent } from './components/HomeComponent';
 
 export const HomeScreen: React.FC = () => {
-
-  console.log('render');
   return (
     <Background className={'flex-1 bg-white h-full'}>
       <SafeContainer>
         <KeyboardAwareScrollView
           scrollEnabled
           horizontal={false}
-          showsVerticalScrollIndicator={false}><HomeComponent />
+          showsVerticalScrollIndicator={false}>
+            <HomeComponent />
+
+
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>

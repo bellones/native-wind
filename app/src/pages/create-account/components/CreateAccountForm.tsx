@@ -45,9 +45,10 @@ export const CreateAccountForm: React.FC = () => {
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 ml-2"
+                  className="flex-1 ml-2 text-black"
                   keyboardType="email-address"
                   onChangeText={onChange}
+                  placeholderTextColor={'gray'}
                   autoCapitalize="none"
                   value={value}
                   placeholder="Digite seu email"
@@ -78,8 +79,9 @@ export const CreateAccountForm: React.FC = () => {
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 ml-2"
+                  className="flex-1 ml-2 text-black"
                   keyboardType="default"
+                  placeholderTextColor={'gray'}
                   secureTextEntry={isVisible}
                   onChangeText={onChange}
                   value={value}
@@ -108,7 +110,7 @@ export const CreateAccountForm: React.FC = () => {
 
       <InputContainer className="flex mb-4">
         <NormalText
-          className="text-black mb-1 ml-1"
+          className="text-black mb-1 ml-1 "
           style={[styles.callText, styles.poppinsRegular]}>
           Confirme sua Senha:
         </NormalText>
@@ -119,8 +121,9 @@ export const CreateAccountForm: React.FC = () => {
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 ml-2"
+                  className="flex-1 ml-2 text-black"
                   keyboardType="default"
+                  placeholderTextColor={'gray'}
                   secureTextEntry={isConfirmationVisible}
                   onChangeText={onChange}
                   value={value}

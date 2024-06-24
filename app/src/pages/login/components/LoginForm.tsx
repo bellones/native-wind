@@ -46,10 +46,11 @@ export const LoginForm: React.FC = () => {
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 pl-2"
+                  className="flex-1 pl-2 text-black"
                   keyboardType="email-address"
                   autoCapitalize="none"
                   onChangeText={onChange}
+                  placeholderTextColor={'gray'}
                   value={value}
                   placeholder="Digite seu email"
                   style={[styles.poppinsRegular, styles.normaltext]}
@@ -79,11 +80,12 @@ export const LoginForm: React.FC = () => {
             render={({field: {onChange, value}}) => (
               <>
                 <Input
-                  className="flex-1 pl-2"
+                  className="flex-1 pl-2 text-black"
                   keyboardType="default"
                   secureTextEntry={isVisible}
                   onChangeText={onChange}
                   value={value}
+                  placeholderTextColor={'gray'}
                   placeholder="Digite sua senha"
                   style={[styles.poppinsRegular, styles.normaltext]}
                 />
