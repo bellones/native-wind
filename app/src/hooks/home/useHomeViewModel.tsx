@@ -83,13 +83,12 @@ const useHomeViewModel = () => {
     const userItemId = await getUser();
     const address = await getAddress(userItemId?.id as string);
     if (address) {
+      setAddress(address);
       const selectedAddress = address.find((item) => item.main === true);
       if(selectedAddress){
         setSelectedAddress(selectedAddress);
         return;
       }
-      setAddress(address);
-      return;
     }
   }, [addressItemStore, setAddress, setSelectedAddress]);
 
