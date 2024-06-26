@@ -3,6 +3,7 @@ import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Background, SafeContainer } from '../../../utils/constants';
 import { AddressHomeTile } from './AddressHomeTile';
+import { AddressModal } from './AddressModal';
 import { Banner } from './Banner';
 import { Categories } from './Categories';
 import { CategoryHome } from './CategoryHome';
@@ -23,6 +24,7 @@ export const HomeComponent: React.FC = () => {
           <Banner />
           <Categories />
           <CategoryHome />
+          <AddressModal />
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>
