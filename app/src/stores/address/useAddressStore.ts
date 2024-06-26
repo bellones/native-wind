@@ -6,6 +6,8 @@ export type AddressStore = {
   setAddress: (addresses: AddressType[]) => void;
   setSelectedAddress: (address: AddressType) => void;
   selectedAddress: AddressType | null;
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
 };
 
 const useAddressStore = create<AddressStore>(set => ({
@@ -13,5 +15,7 @@ const useAddressStore = create<AddressStore>(set => ({
   setAddress: addresses => set({addresses}),
   selectedAddress: null,
   setSelectedAddress: address => set({selectedAddress: address}),
+  visible: false,
+  setVisible: visible => set({visible}),
 }));
 export default useAddressStore;

@@ -20,7 +20,7 @@ export const CategoryProfessional: React.FC<Props> = ({category}) => {
       </Title>
       <TextButton>
 
-        <Title className="font-semibold px-4 mt-4 mb-4" style={[styles.poppinsRegular, styles.textButtonColor]}>Ver Todos</Title>
+        <Title className="font-semibold px-4 mt-4 mb-4" style={[styles.poppinsSemiBold, styles.textButtonColor]}>Ver Todos</Title>
       </TextButton>
       </Row>
       <List

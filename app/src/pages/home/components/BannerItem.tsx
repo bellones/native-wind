@@ -16,7 +16,7 @@ export const BannerItem: React.FC<Props> = ({banner}) => {
       <BannerImage
         className="w-80 h-40 mr-4 rounded-xl"
         source={{uri: banner.image, priority: FastImage.priority.normal}}
-        resizeMode={FastImage.resizeMode.contain}
+        resizeMode={FastImage.resizeMode.cover}
       />
     </Pressable>
   );
