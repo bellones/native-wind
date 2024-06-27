@@ -1,23 +1,17 @@
-/* eslint-disable prettier/prettier */
-import React from 'react';
+import React from 'react'
 
-import { useCategoryStore } from '../../../stores';
-import { CategoryProfessional } from './CategoryProfessional';
+import { useCategoryStore } from '../../../stores'
+import { Container } from '../../../utils/constants'
+import { CategoryProfessional } from './CategoryProfessional'
 
 export const CategoryHome: React.FC = () => {
+   const homeCategories = useCategoryStore((state) => state.homeCategories)
 
-const homeCategories = useCategoryStore((state) => state.homeCategories);
-
-
-  return (
-
-   <>
-   {
-    homeCategories?.map((category, index) => (
-
-      <CategoryProfessional key={index} category={category} />
-    ))
-   }
-   </>
-  );
-};
+   return (
+      <Container>
+         {homeCategories?.map((category, index) => (
+            <CategoryProfessional key={index} category={category} />
+         ))}
+      </Container>
+   )
+}

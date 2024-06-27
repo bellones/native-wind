@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { create } from 'zustand';
 import { CategoryType } from '../../types/category/category_type';
 

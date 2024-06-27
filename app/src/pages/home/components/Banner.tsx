@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import useBannerStore from '../../../stores/banner/useBannerStore';
 import { BannerType } from '../../../types/banner/banner_type';

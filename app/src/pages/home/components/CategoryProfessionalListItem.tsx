@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import { ProfessionalType } from '../../../types/professional/professional_type';

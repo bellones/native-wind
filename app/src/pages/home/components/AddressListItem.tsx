@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { Pressable } from 'react-native';
 import { MapPinIcon } from 'react-native-heroicons/outline';

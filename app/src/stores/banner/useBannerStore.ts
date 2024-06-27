@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { create } from 'zustand';
 import { BannerType } from '../../types/banner/banner_type';
 

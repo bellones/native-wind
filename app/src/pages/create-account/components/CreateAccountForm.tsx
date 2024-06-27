@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -7,13 +7,13 @@ import { LockClosedIcon, LockOpenIcon } from 'react-native-heroicons/outline';
 import useCreateAccountViewModel from '../../../hooks/create-account/useCreateAccountViewModel';
 import { CreateAccountFormType } from '../../../types/create_account/create_account_form_type';
 import {
-  Button,
-  Container,
-  Input,
-  InputContainer,
-  Inputbox,
-  NormalText,
-  styles,
+    Button,
+    Container,
+    Input,
+    InputContainer,
+    Inputbox,
+    NormalText,
+    styles,
 } from '../../../utils/constants';
 import { SCHEMA } from '../validations';
 

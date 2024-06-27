@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { and, or, query, where } from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 import { professionalCategoryCollection, professionalCollection } from '..';

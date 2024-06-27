@@ -1,15 +1,15 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { BellIcon } from 'react-native-heroicons/outline';
 import useUserStore from '../../../stores/user/userStore';
 import {
-  Avatar,
-  Container,
-  IconButton,
-  NormalText,
-  Row,
-  Title,
-  styles,
+    Avatar,
+    Container,
+    IconButton,
+    NormalText,
+    Row,
+    Title,
+    styles,
 } from '../../../utils/constants';
 import { responsiveWidth } from '../../../utils/dimensions';
 

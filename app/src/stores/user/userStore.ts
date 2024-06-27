@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { create } from 'zustand';
 import { UserType } from '../../types/user/user_type';
 

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import storage from '@react-native-firebase/storage';
 import { bannerCollection } from '..';
 import { BannerType } from '../../types/banner/banner_type';

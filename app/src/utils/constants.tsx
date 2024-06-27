@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { styled } from 'nativewind';
 import { ActivityIndicator, FlatList, Image, Pressable, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
@@ -16,8 +16,6 @@ export const HomeScreen: React.FC = () => {
           horizontal={false}
           showsVerticalScrollIndicator={false}>
             <HomeComponent />
-
-
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>

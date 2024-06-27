@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import useProfileViewModel from '../../hooks/profile/useProfileViewModel';

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 
 import auth from '@react-native-firebase/auth';
 import { userCollection } from '..';

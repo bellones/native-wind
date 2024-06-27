@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { ProfessionalType } from '../professional/professional_type';
 
 export type CategoryType = {

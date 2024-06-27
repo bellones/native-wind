@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { CartScreen } from '../../pages/cart/CartScreen';
 import { CategoriesScreen } from '../../pages/categories/CategoryScreen';

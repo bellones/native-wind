@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { StackActions, useNavigation } from '@react-navigation/native';
 import { signOut } from '../../services/user/userService';
 import { useLoadingRequest } from '../../utils/useLoadingRequest';
