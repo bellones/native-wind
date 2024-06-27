@@ -14,18 +14,14 @@ import { CategoryType } from '../../types/category/category_type';
 import { useLoadingRequest } from '../../utils/useLoadingRequest';
 
 const useHomeViewModel = () => {
-  const userItemStore = useUserStore(state => state.user);
-  const bannersItemStore = useBannerStore(state => state.banners);
-  const addressItemStore = useAddressStore(state => state.addresses);
-  const setUser = useUserStore(state => state.setUser);
-  const setBanners = useBannerStore(state => state.setBanners);
-  const setCategories = useCategoryStore(state => state.setCategories);
-  const setHomeCategories = useCategoryStore(state => state.setHomeCategories);
-  const setAddress = useAddressStore(state => state.setAddress);
-  const setSelectedAddress = useAddressStore(state => state.setSelectedAddress);
 
-  const user = useCallback(async () => {
-    if (userItemStore) {
+  const { setUser, user } = useUserStore();
+  const  { banners, setBanners } = useBannerStore();
+  const { setCategories, categories ,setHomeCategories } = useCategoryStore();
+  const { addresses,  setAddress, setSelectedAddress} = useAddressStore();
+
+  const userData = useCallback(async () => {
+    if (user) {
       return;
     } else {
       const userItem = await getUser();
@@ -34,17 +30,17 @@ const useHomeViewModel = () => {
         return;
       }
     }
-  }, [setUser, userItemStore]);
-  const banners = useCallback(async () => {
-    if(bannersItemStore && bannersItemStore.length > 0) {return;}
+  }, [setUser, user]);
+  const bannersData = useCallback(async () => {
+    if(banners && banners.length > 0) {return;}
     const bannersItem = await getBanners();
     if (bannersItem) {
       setBanners(bannersItem as BannerType[]);
       return;
     }
-  }, [setBanners, bannersItemStore]);
+  }, [setBanners, banners]);
 
-  const categories = useCallback(async () => {
+  const categoriesData = useCallback(async () => {
 
     const getProfessionalData = async (
       categs : CategoryType[]
@@ -78,8 +74,8 @@ const useHomeViewModel = () => {
     }
   }, [setHomeCategories, setCategories]);
 
-  const addresses = useCallback(async () => {
-    if(addressItemStore && addressItemStore.length > 0) {return;}
+  const addressesData = useCallback(async () => {
+    if(addresses && addresses.length > 0) {return;}
     const userItemId = await getUser();
     const address = await getAddress(userItemId?.id as string);
     if (address) {
@@ -90,11 +86,11 @@ const useHomeViewModel = () => {
         return;
       }
     }
-  }, [addressItemStore, setAddress, setSelectedAddress]);
+  }, [addresses, setAddress, setSelectedAddress]);
 
   const {apiRequest: initialize, isLoading} = useLoadingRequest({
     apiFunc: async () => {
-      await Promise.all([user(), banners(), addresses(), categories()]);
+      await Promise.all([userData(), bannersData(), addressesData(), categoriesData()]);
     },
     errorFunc: err => {
       console.log('err', err);

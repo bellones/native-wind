@@ -18,9 +18,7 @@ import { AddressListItem } from './AddressListItem';
 
 export const AddressModal: React.FC = () => {
 
-  const visible = useAddressStore(state => state.visible);
-  const addresses = useAddressStore(state => state.addresses);
-  const setVisible = useAddressStore(state => state.setVisible);
+  const {visible, addresses, setVisible} = useAddressStore();
   const handleDismiss = () => {
     setVisible(false);
   };

@@ -14,13 +14,13 @@ export const CategoryProfessional: React.FC<Props> = ({category}) => {
     <>
     <Row className="flex items-center justify-between flex-row ">
     <Title
-        className="text-2xl font-semibold px-4 mt-4 mb-4 text-black"
+        className="text-2xl font-semibold px-2 mt-4 mb-4 text-black"
         style={styles.poppinsRegular}>
         {category?.name}
       </Title>
       <TextButton>
 
-        <Title className="font-semibold px-4 mt-4 mb-4" style={[styles.poppinsSemiBold, styles.textButtonColor]}>Ver Todos</Title>
+        <Title className="font-semibold px-2 mt-4 mb-4" style={[styles.poppinsSemiBold, styles.textButtonColor]}>Ver Todos</Title>
       </TextButton>
       </Row>
       <List
@@ -28,11 +28,9 @@ export const CategoryProfessional: React.FC<Props> = ({category}) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => `${item}${index}`}
-        renderItem={({item}) => (
-          <CategoryProfessionalListItem
-            professional={item as ProfessionalType}
-          />
-        )}
+        renderItem={({item}) => {
+          return <CategoryProfessionalListItem professional={item as ProfessionalType} />;
+        }}
       />
     </>
   );

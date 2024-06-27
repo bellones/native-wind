@@ -12,7 +12,7 @@ export const Banner: React.FC = () => {
 
   return (
   <List
-    className="flex-row ml-4"
+    className="flex-row ml-2"
     data={banners}
     keyExtractor={(item, index) => `${item}${index}`}
     renderItem={({ item }) => <BannerItem banner={item as BannerType} />}

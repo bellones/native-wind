@@ -11,12 +11,11 @@ import {
   backgroundColorAmber,
   styles,
 } from '../../../utils/constants';
-import { responsiveWidth } from '../../../utils/dimensions';
 
 export const AddressHomeTile: React.FC = () => {
   const selectedAddress = useAddressStore(state => state.selectedAddress);
   const setVisible = useAddressStore(state => state.setVisible);
-  const formatedAddress = `${selectedAddress?.street}, ${selectedAddress?.number}, ${selectedAddress?.complement}`;
+  const formatedAddress = `${selectedAddress?.street}, ${selectedAddress?.number}`;
   const formatedNeighborhood = `${selectedAddress?.neighborhood}, ${selectedAddress?.city} - ${selectedAddress?.state}`;
 
   const handleVisible = () => {
@@ -26,14 +25,14 @@ export const AddressHomeTile: React.FC = () => {
   return (
     <Pressable onPress={handleVisible}>
       <Row className="flex-row mb-4 items-center mx-2 mt-2">
-        <MapPinIcon color={backgroundColorAmber} size={responsiveWidth(8)} />
+        <MapPinIcon color={backgroundColorAmber} size={24} />
         <Container style={styles.normalWidth}>
-          <Title className="text-md text-black ml-2" style={styles.poppinsBold}>
+          <Title className="text-black ml-2" style={styles.poppinsBold}>
             {formatedAddress ?? 'Endereço não encontrado'}
           </Title>
           <NormalText
             className="text-xs ml-2 text-neutral-500"
-            style={styles.poppinsSemiBold}>
+            style={styles.poppinsRegular}>
             {formatedNeighborhood ?? 'Bairro não encontrado'}
           </NormalText>
         </Container>

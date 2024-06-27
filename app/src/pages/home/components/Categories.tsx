@@ -13,11 +13,11 @@ export const Categories: React.FC = () => {
   return (
     <>
       <Title
-        className="text-2xl font-semibold px-4 mt-6 text-black"
+        className="text-2xl font-semibold mx-2 mt-6 text-black"
         style={styles.poppinsRegular}>
         Categorias
       </Title>
-      <HomeCategory className="flex-row justify-around items-centerrounded-full px-3">
+      <HomeCategory className="flex-row justify-around items-centerrounded-full mx-1">
         <FlatList
           data={category}
           keyExtractor={item => item.id}

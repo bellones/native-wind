@@ -101,6 +101,8 @@ export const styles = StyleSheet.create({
   },
 
 
+
+
 });
 export const logo = require('../assets/images/logo.png');
 export const backgroundColorAmber = '#FFC107';

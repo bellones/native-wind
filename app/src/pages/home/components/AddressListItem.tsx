@@ -19,7 +19,7 @@ type Props = {
 };
 
 export const AddressListItem: React.FC<Props> = ({address}) => {
-  const formatedAddress = `${address?.street}, ${address?.number}, ${address?.complement}`;
+  const formatedAddress = `${address?.street}, ${address?.number}`;
   const formatedNeighborhood = `${address?.neighborhood}, ${address?.city} - ${address?.state}`;
   const {setSelectedAddress, setVisible, selectedAddress} = useAddressStore();
 
