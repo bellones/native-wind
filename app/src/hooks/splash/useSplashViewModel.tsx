@@ -16,16 +16,14 @@ const useSplashViewModel = () => {
   const {initialize} = useHomeViewModel();
 
   const intervalOne = setTimeout(() => {
-    scaleRingOne.value = withSpring(scaleRingOne.value + responsiveHeight(3));
+   scaleRingOne.value < 30 ?  scaleRingOne.value = withSpring(scaleRingOne.value + responsiveHeight(3)) : scaleRingOne.value = 30;
   }, 100);
-
   const intervalTwo = setTimeout(() => {
-    scaleLogo.value = withSpring(scaleLogo.value + responsiveHeight(10));
+    scaleLogo.value < 192 ? scaleLogo.value = withSpring(scaleLogo.value + responsiveHeight(10)) :  scaleLogo.value = 192;
   }, 200);
   const intervalThree = setTimeout(() => {
-    scaleRingTwo.value = withSpring(scaleRingTwo.value + responsiveHeight(4));
+    scaleRingTwo.value < 50 ?  scaleRingTwo.value = withSpring(scaleRingTwo.value + responsiveHeight(4)) : scaleRingTwo.value = 50;
   }, 300);
-
 
 
 

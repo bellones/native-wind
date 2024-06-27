@@ -1,17 +1,16 @@
 /* eslint-disable prettier/prettier */
-import { getDocs, query, where } from '@react-native-firebase/firestore';
 import { addressCollection } from '..';
 import { AddressType } from '../../types/address/address_type';
 
 export const getAddress = async (userId: string) => {
-  const address = await getDocs(
-    query(addressCollection, where('userId', '==', userId)),
-  );
-  const addressList: AddressType[] = [];
-  address.forEach(doc => {
-    const addressData = doc.data() as AddressType;
-    addressList.push(addressData);
-  });
+  const address = await addressCollection.where('userId', '==', userId).get();
+  const addressList: AddressType[] = await Promise.all( address.docs.map(async doc => {
+    const data = doc.data();
+    return {
+      ...data,
+      id: doc.id,
+    } as AddressType;
+  }));
   return addressList;
 };
 export const getAddressById = async (addressId: string) => {

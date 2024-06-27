@@ -8,10 +8,8 @@ import { Banner } from './Banner';
 import { Categories } from './Categories';
 import { CategoryHome } from './CategoryHome';
 
-
-
-
 export const HomeComponent: React.FC = () => {
+
 
   return (
     <Background className="flex-1 bg-white h-full">
@@ -24,7 +22,7 @@ export const HomeComponent: React.FC = () => {
           <Banner />
           <Categories />
           <CategoryHome />
-          <AddressModal />
+          <AddressModal/>
         </KeyboardAwareScrollView>
       </SafeContainer>
     </Background>

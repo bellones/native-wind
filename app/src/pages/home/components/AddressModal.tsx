@@ -1,19 +1,24 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+
 import { Modal, SafeAreaView } from 'react-native';
 import { XMarkIcon } from 'react-native-heroicons/solid';
 import { AppStatusBar } from '../../../components/StatusBar';
 import useAddressStore from '../../../stores/address/useAddressStore';
+import { AddressType } from '../../../types/address/address_type';
 import {
-    Container,
-    IconButton,
-    Row,
-    Title,
-    styles,
+  Container,
+  IconButton,
+  List,
+  Row,
+  Title,
+  styles,
 } from '../../../utils/constants';
+import { AddressListItem } from './AddressListItem';
 
 export const AddressModal: React.FC = () => {
-  const {visible, setVisible} = useAddressStore();
+
+  const {visible, addresses, setVisible} = useAddressStore();
   const handleDismiss = () => {
     setVisible(false);
   };
@@ -38,6 +43,14 @@ export const AddressModal: React.FC = () => {
                 <XMarkIcon size={24} color={'black'} />
               </IconButton>
             </Row>
+
+            <List
+              data={addresses}
+              keyExtractor={(item, index) => `${item}${index}`}
+              renderItem={({item}) => (
+                <AddressListItem address={item as AddressType} />
+              )}
+             />
           </Container>
         </SafeAreaView>
       </Modal>
