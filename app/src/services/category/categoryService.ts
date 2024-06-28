@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import storage from '@react-native-firebase/storage';
 import { categoryCollection } from '..';
 import { CategoryType } from '../../types/category/category_type';

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { useNavigation } from '@react-navigation/native';
 import { UseFormHandleSubmit } from 'react-hook-form';
 import { recoverPassword } from '../../services/user/userService';

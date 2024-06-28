@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 
@@ -7,13 +7,13 @@ import { ActivityIndicator, Text } from 'react-native';
 import useForgotPasswordViewModel from '../../../hooks/forgot-password/useForgotPasswordViewModel';
 import { ForgotPassFormType } from '../../../types/recoverpass/recover_pass_form_type';
 import {
-  Button,
-  Container,
-  Input,
-  InputContainer,
-  Inputbox,
-  NormalText,
-  styles,
+    Button,
+    Container,
+    Input,
+    InputContainer,
+    Inputbox,
+    NormalText,
+    styles,
 } from '../../../utils/constants';
 import { SCHEMA } from '../validations';
 

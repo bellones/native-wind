@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { addressCollection } from '..';
 import { AddressType } from '../../types/address/address_type';
 

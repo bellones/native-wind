@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 
 import { Modal, SafeAreaView } from 'react-native';
@@ -7,12 +7,12 @@ import { AppStatusBar } from '../../../components/StatusBar';
 import useAddressStore from '../../../stores/address/useAddressStore';
 import { AddressType } from '../../../types/address/address_type';
 import {
-  Container,
-  IconButton,
-  List,
-  Row,
-  Title,
-  styles,
+    Container,
+    IconButton,
+    List,
+    Row,
+    Title,
+    styles,
 } from '../../../utils/constants';
 import { AddressListItem } from './AddressListItem';
 

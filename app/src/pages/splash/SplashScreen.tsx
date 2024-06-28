@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import Animated from 'react-native-reanimated';
 import { AppStatusBar } from '../../components/StatusBar';

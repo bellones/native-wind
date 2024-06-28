@@ -1,10 +1,10 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { CategoryType } from '../../../types/category/category_type';
 import {
-  CategoryItem,
-  CategoryText,
-  styles,
+    CategoryItem,
+    CategoryText,
+    styles,
 } from '../../../utils/constants';
 
 type Props = {

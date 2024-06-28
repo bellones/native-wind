@@ -1,15 +1,15 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AppStatusBar } from '../../components/StatusBar';
 import {
-  Background,
-  Logo,
-  Row,
-  SafeContainer,
-  Title,
-  logo,
-  styles,
+    Background,
+    Logo,
+    Row,
+    SafeContainer,
+    Title,
+    logo,
+    styles,
 } from '../../utils/constants';
 import { LoginForm } from './components/LoginForm';
 

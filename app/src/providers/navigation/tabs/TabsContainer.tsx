@@ -1,12 +1,12 @@
-/* eslint-disable prettier/prettier */
+
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {
-  HomeIcon,
-  MagnifyingGlassIcon,
-  ShoppingBagIcon,
-  UserIcon,
+    HomeIcon,
+    MagnifyingGlassIcon,
+    ShoppingBagIcon,
+    UserIcon,
 } from 'react-native-heroicons/outline';
 import { HomeScreen } from '../../../pages/home/HomeScreen';
 import { OrderScreen } from '../../../pages/order/OrderScreen';

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { BellIcon } from 'react-native-heroicons/outline';
 import useUserStore from '../../../stores/user/userStore';
@@ -15,9 +15,9 @@ import { responsiveWidth } from '../../../utils/dimensions';
 
 
 export const UserHomeTile = () => {
-  const user = useUserStore((state)=> state.user);
+  const {user} = useUserStore();
   return (
-    <Row className="flex-row mt-2 items-center" style={styles.paddingGlobal}>
+    <Row className="flex-row mt-2 items-center">
       <Avatar
         className="rounded-full w-10 h-10"
         source={{

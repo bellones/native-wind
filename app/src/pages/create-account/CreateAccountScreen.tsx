@@ -1,13 +1,13 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { BackButton } from '../../components/BackButton';
 import {
-  Background,
-  NormalText,
-  SafeContainer,
-  Title,
-  styles,
+    Background,
+    NormalText,
+    SafeContainer,
+    Title,
+    styles,
 } from '../../utils/constants';
 import { CreateAccountForm } from './components/CreateAccountForm';
 

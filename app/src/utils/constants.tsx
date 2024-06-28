@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { styled } from 'nativewind';
 import { ActivityIndicator, FlatList, Image, Pressable, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -99,9 +99,13 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  categoryItemWidth: {
+    width: responsiveWidth(44),
+  },
 
-
-
+  justifyBetween: {
+    justifyContent: 'space-between',
+  }
 
 });
 export const logo = require('../assets/images/logo.png');

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { create } from 'zustand';
 import { AddressType } from '../../types/address/address_type';
 export type AddressStore = {

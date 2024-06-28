@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

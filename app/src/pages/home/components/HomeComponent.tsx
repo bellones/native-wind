@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Background, SafeContainer } from '../../../utils/constants';
@@ -9,7 +9,6 @@ import { Categories } from './Categories';
 import { CategoryHome } from './CategoryHome';
 
 export const HomeComponent: React.FC = () => {
-
 
   return (
     <Background className="flex-1 bg-white h-full">

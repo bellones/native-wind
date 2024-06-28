@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { StackActions, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { UseFormHandleSubmit } from 'react-hook-form';

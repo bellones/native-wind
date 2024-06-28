@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { useCallback } from 'react';
 import { getAddress } from '../../services/address/addressService';
 import { getBanners } from '../../services/banner/bannerService';
