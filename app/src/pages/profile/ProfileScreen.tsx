@@ -3,7 +3,8 @@ import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import useProfileViewModel from '../../hooks/profile/useProfileViewModel';
 import { Background, Button, NormalText, SafeContainer, styles } from '../../utils/constants';
-import { UserHomeTile } from '../home/components/UserHomeTile';
+import { UserHomeTile } from './components/UserHomeTile';
+
 
 export const ProfileScreen: React.FC = () => {
 

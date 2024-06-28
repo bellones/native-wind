@@ -4,16 +4,16 @@ import Animated from 'react-native-reanimated';
 import { AppStatusBar } from '../../components/StatusBar';
 import useSplashViewModel from '../../hooks/splash/useSplashViewModel';
 import {
-    Background,
-    Logo,
-    NormalText,
-    RingOne,
-    RingTwo,
-    Row,
-    Title,
-    backgroundColorAmber,
-    logo,
-    styles,
+  Background,
+  Logo,
+  NormalText,
+  RingOne,
+  RingTwo,
+  Row,
+  Title,
+  backgroundColorAmber,
+  logo,
+  styles,
 } from '../../utils/constants';
 
 export const SplashScreen: React.FC = () => {

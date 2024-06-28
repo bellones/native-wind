@@ -99,9 +99,13 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  categoryItemWidth: {
+    width: responsiveWidth(44),
+  },
 
-
-
+  justifyBetween: {
+    justifyContent: 'space-between',
+  }
 
 });
 export const logo = require('../assets/images/logo.png');

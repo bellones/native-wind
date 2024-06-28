@@ -1,13 +1,13 @@
+import React from 'react'
 
-import React from 'react';
-
-import { ActivityIndicator } from 'react-native';
-import { backgroundColorAmber } from '../../../utils/constants';
+import { Facebook, Instagram } from 'react-content-loader/native'
+import { Container } from '../../../utils/constants'
 export const HomeLoading: React.FC = () => {
-
-  return (
-        <>
-          <ActivityIndicator size="large" color={backgroundColorAmber} />
-        </>
-  );
-};
+   return (
+      <Container className="mx-4">
+         <Facebook />
+         <Instagram />
+         <Instagram />
+      </Container>
+   )
+}

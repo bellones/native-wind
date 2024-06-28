@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { StackActions, useNavigation } from '@react-navigation/native'
 import { useEffect } from 'react'
 import { useSharedValue, withSpring } from 'react-native-reanimated'
@@ -16,7 +14,7 @@ const useSplashViewModel = () => {
    const { initialize } = useHomeViewModel()
 
    const intervalOne = setTimeout(() => {
-      scaleRingOne.value < 30
+      scaleRingOne.value < 25
          ? (scaleRingOne.value = withSpring(
               scaleRingOne.value + responsiveHeight(3),
            ))
@@ -30,7 +28,7 @@ const useSplashViewModel = () => {
          : (scaleLogo.value = 192)
    }, 200)
    const intervalThree = setTimeout(() => {
-      scaleRingTwo.value < 60
+      scaleRingTwo.value < 50
          ? (scaleRingTwo.value = withSpring(
               scaleRingTwo.value + responsiveHeight(4),
            ))
@@ -38,6 +36,7 @@ const useSplashViewModel = () => {
    }, 300)
 
    useEffect(() => {
+      let mounted = true;
       const navigateTo = async () => {
          scaleRingOne.value = 0
          scaleRingTwo.value = 0
@@ -54,13 +53,15 @@ const useSplashViewModel = () => {
             navigation.dispatch(StackActions.replace('Tabs'))
          }
       }
-      navigateTo()
+      if(mounted) {
+        navigateTo();
+      }
       return () => {
          const timeoutsToClear = [intervalOne, intervalTwo, intervalThree]
-
          timeoutsToClear.flatMap((timeoutId) => {
             clearTimeout(timeoutId)
-         })
+         });
+         mounted = false;
       }
    }, [])
 

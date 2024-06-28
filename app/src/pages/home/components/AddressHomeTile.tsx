@@ -3,17 +3,16 @@ import { Pressable } from 'react-native'
 import { MapPinIcon } from 'react-native-heroicons/outline'
 import useAddressStore from '../../../stores/address/useAddressStore'
 import {
-  Container,
-  NormalText,
-  Row,
-  Title,
-  backgroundColorAmber,
-  styles,
+   Container,
+   NormalText,
+   Row,
+   Title,
+   backgroundColorAmber,
+   styles,
 } from '../../../utils/constants'
 
 export const AddressHomeTile: React.FC = () => {
-   const selectedAddress = useAddressStore((state) => state.selectedAddress)
-   const setVisible = useAddressStore((state) => state.setVisible)
+   const {selectedAddress, setVisible} = useAddressStore();
    const formatedAddress = `${selectedAddress?.street}, ${selectedAddress?.number}`
    const formatedNeighborhood = `${selectedAddress?.neighborhood}, ${selectedAddress?.city} - ${selectedAddress?.state}`
 
