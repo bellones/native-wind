@@ -15,7 +15,6 @@ export const AddressHomeTile: React.FC = () => {
    const {selectedAddress, setVisible} = useAddressStore();
    const formatedAddress = `${selectedAddress?.street}, ${selectedAddress?.number}`
    const formatedNeighborhood = `${selectedAddress?.neighborhood}, ${selectedAddress?.city} - ${selectedAddress?.state}`
-
    const handleVisible = () => {
       setVisible(true)
    }

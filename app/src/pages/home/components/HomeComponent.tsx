@@ -10,6 +10,8 @@ import { CategoryHome } from './CategoryHome';
 
 export const HomeComponent: React.FC = () => {
 
+  console.log('HomeComponent');
+
   return (
     <Background className="flex-1 bg-white h-full">
       <SafeContainer>
