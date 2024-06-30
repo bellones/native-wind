@@ -1,17 +1,21 @@
 import React from 'react'
 
 import { useCategoryStore } from '../../../stores'
-import { Container } from '../../../utils/constants'
+import { CategoryType } from '../../../types/category/category_type'
+import { List } from '../../../utils/constants'
 import { CategoryProfessional } from './CategoryProfessional'
 
 export const CategoryHome: React.FC = () => {
-   const homeCategories = useCategoryStore((state) => state.homeCategories)
+   const { homeCategories } = useCategoryStore()
 
    return (
-      <Container>
-         {homeCategories?.map((category, index) => (
-            <CategoryProfessional key={index} category={category} />
-         ))}
-      </Container>
+      <List
+         data={homeCategories}
+         scrollEnabled={false}
+         keyExtractor={(item, index) => `${item}${index}`}
+         renderItem={({ item }) => (
+            <CategoryProfessional category={item as CategoryType} />
+         )}
+      ></List>
    )
 }

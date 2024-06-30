@@ -1,71 +1,70 @@
-import { StackActions, useNavigation } from '@react-navigation/native'
-import { useEffect } from 'react'
-import { useSharedValue, withSpring } from 'react-native-reanimated'
-import { getCurrentUser } from '../../services/user/userService'
-import { responsiveHeight } from '../../utils/dimensions'
-import useHomeViewModel from '../home/useHomeViewModel'
+/* eslint-disable prettier/prettier */
+import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
+import { useSharedValue, withSpring } from 'react-native-reanimated';
+import { responsiveHeight } from '../../utils/dimensions';
 
 const useSplashViewModel = () => {
-   const scaleRingOne = useSharedValue(0)
-   const scaleRingTwo = useSharedValue(0)
-   const scaleLogo = useSharedValue(0)
-   const navigation = useNavigation()
+  const scaleRingOne = useSharedValue(0);
+  const scaleRingTwo = useSharedValue(0);
+  const scaleLogo = useSharedValue(0);
+  const navigation = useNavigation();
 
-   const { initialize } = useHomeViewModel()
+  const intervalOne = setTimeout(() => {
+    scaleRingOne.value = withSpring(scaleRingOne.value + responsiveHeight(5));
+  }, 100);
 
-   const intervalOne = setTimeout(() => {
-      scaleRingOne.value < 25
-         ? (scaleRingOne.value = withSpring(
-              scaleRingOne.value + responsiveHeight(3),
-           ))
-         : (scaleRingOne.value = 30)
-   }, 100)
-   const intervalTwo = setTimeout(() => {
-      scaleLogo.value < 192
-         ? (scaleLogo.value = withSpring(
-              scaleLogo.value + responsiveHeight(10),
-           ))
-         : (scaleLogo.value = 192)
-   }, 200)
-   const intervalThree = setTimeout(() => {
-      scaleRingTwo.value < 50
-         ? (scaleRingTwo.value = withSpring(
-              scaleRingTwo.value + responsiveHeight(4),
-           ))
-         : (scaleRingTwo.value = 60)
-   }, 300)
+  const intervalTwo = setTimeout(() => {
+    scaleLogo.value = withSpring(scaleLogo.value + responsiveHeight(24));
+  }, 200);
+  const intervalThree = setTimeout(() => {
+    scaleRingTwo.value = withSpring(scaleRingTwo.value + responsiveHeight(5.5));
+  }, 300);
 
-   useEffect(() => {
-      let mounted = true;
-      const navigateTo = async () => {
-         scaleRingOne.value = 0
-         scaleRingTwo.value = 0
-         scaleLogo.value = 0
-         intervalOne
-         intervalTwo
-         intervalThree
-         const user = await getCurrentUser()
+  const navigateTo = setTimeout(() => {
+    const user = auth().currentUser;
+    if (user) {
+      navigation.navigate('Tabs' as never);
+      return;
+    }
+    navigation.navigate('Login' as never);
+  }, 800);
 
-         if (!user) {
-            navigation.dispatch(StackActions.replace('Login'))
-         } else {
-            await initialize()
-            navigation.dispatch(StackActions.replace('Tabs'))
-         }
-      }
-      if(mounted) {
-        navigateTo();
-      }
-      return () => {
-         const timeoutsToClear = [intervalOne, intervalTwo, intervalThree]
-         timeoutsToClear.flatMap((timeoutId) => {
-            clearTimeout(timeoutId)
-         });
-         mounted = false;
-      }
-   }, [])
+  useEffect(() => {
+    const load = async () => {
+      scaleRingOne.value = 0;
+      scaleRingTwo.value = 0;
+      scaleLogo.value = 0;
+      intervalOne;
+      intervalTwo;
+      intervalThree;
+      navigateTo;
+    };
+    load();
+    return () => {
+      const timeoutsToClear = [
+        intervalOne,
+        intervalTwo,
+        intervalThree,
+        navigateTo,
+      ];
 
-   return { scaleRingOne, scaleRingTwo, scaleLogo }
-}
+      timeoutsToClear.flatMap(timeoutId => {
+        clearTimeout(timeoutId);
+      });
+    };
+  }, [
+    intervalOne,
+    intervalThree,
+    intervalTwo,
+    navigateTo,
+    scaleLogo,
+    scaleRingOne,
+    scaleRingTwo,
+  ]);
 
-export default useSplashViewModel
+  return {scaleRingOne, scaleRingTwo, scaleLogo};
+};
+
+export default useSplashViewModel;

@@ -7,7 +7,7 @@ const useCategoriesViewModel = (category: CategoryType | undefined) => {
 
    const {setActiveCategory} = useCategoryStore();
 
- const {apiRequest, isLoading} = useLoadingRequest({
+ const {apiRequest: _ , isLoading} = useLoadingRequest({
     apiFunc: async () => {
       if(category !== undefined && category.professionals === undefined){
            const professionals = await getProfessionalByCategory(category.id);
