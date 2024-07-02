@@ -7,14 +7,14 @@ import { LockClosedIcon, LockOpenIcon } from 'react-native-heroicons/outline';
 import useLoginViewModel from '../../../hooks/login/useLoginViewModel';
 import { LoginFormValuesType } from '../../../types/login/login_form_type';
 import {
-    Button,
-    Container,
-    Input,
-    InputContainer,
-    Inputbox,
-    NormalText,
-    Row,
-    styles,
+  Button,
+  Container,
+  Input,
+  InputContainer,
+  Inputbox,
+  NormalText,
+  Row,
+  styles,
 } from '../../../utils/constants';
 import { SCHEMA } from '../validation';
 

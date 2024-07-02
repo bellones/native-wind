@@ -7,10 +7,8 @@ import { getUser, signIn } from '../../services/user/userService';
 import { LoginFormValuesType } from '../../types/login/login_form_type';
 import { AccountNavigationType } from '../../types/navigation/navigation_type';
 import { useLoadingRequest } from '../../utils/useLoadingRequest';
-import useHomeViewModel from '../home/useHomeViewModel';
 const useLoginViewModel =  (handleSubmit: UseFormHandleSubmit<LoginFormValuesType, undefined>) => {
   const navigation = useNavigation<NativeStackNavigationProp<AccountNavigationType>>();
-  const {initialize} = useHomeViewModel();
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -29,7 +27,6 @@ const useLoginViewModel =  (handleSubmit: UseFormHandleSubmit<LoginFormValuesTyp
     await signIn(values.email, values.password);
       const user =  await getUser();
       if (user) {
-        await initialize();
         navigation.dispatch(
           StackActions.replace('Tabs')
         );
