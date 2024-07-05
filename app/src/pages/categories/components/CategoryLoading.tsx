@@ -6,6 +6,7 @@ export const CategoryLoading = () => {
       <Container className="mx-4">
          <Facebook />
          <Instagram />
+         <Instagram />
       </Container>
    )
 }
