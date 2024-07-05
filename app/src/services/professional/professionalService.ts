@@ -54,6 +54,8 @@ return await Promise.all(data);
 
 };
 
+
+
 export const getProfessionalBySpeciality = async (speciality: string) => {
     const professionals = await professionalCollection.where('speciality', '==', speciality).get();
     return professionals.docs.map(professional => professional.data() as ProfessionalType);
