@@ -15,7 +15,7 @@ export const Categories: React.FC = () => {
          >
             Categorias
          </Title>
-         <HomeCategory className="flex-row justify-around items-centerrounded-full mx-1">
+         <HomeCategory className="flex-row justify-around items-center rounded-full mx-1">
             <FlatList
                data={categories}
                keyExtractor={(item) => item.id}

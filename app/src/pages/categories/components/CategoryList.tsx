@@ -4,7 +4,6 @@ import { CategoryListItem } from './CategoryListItem'
 
 type Props = {
    professionals: ProfessionalType[] | undefined
-   
 }
 
 export const CategoryList: React.FC<Props> = ({ professionals }) => {

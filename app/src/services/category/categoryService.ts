@@ -15,8 +15,9 @@ export const getCategory = async (): Promise<CategoryType[]> => {
       return {
         ...data,
         id: doc.id,
+        professionals: [],
         // image,
-      } as CategoryType;
+      } as unknown as CategoryType;
     }),
   );
 

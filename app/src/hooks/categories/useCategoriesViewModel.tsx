@@ -1,30 +1,21 @@
-import { useEffect } from "react";
-import { getProfessionalBySpeciality } from "../../services/professional/professionalService";
-import { useCategoryStore } from "../../stores";
-import { CategoryType } from "../../types/category/category_type";
-import { useLoadingRequest } from "../../utils/useLoadingRequest";
+import { useCallback, useEffect, useState } from 'react';
+import { getProfessionalBySpeciality } from '../../services/professional/professionalService';
+import { CategoryType } from '../../types/category/category_type';
 
 const useCategoriesViewModel = (category: CategoryType | undefined) => {
+   const [isLoading, setIsLoading] = useState<boolean>(true);
+   const fetchProfessionals = useCallback(async () => {
+      if (category) {
+         const professionals = await getProfessionalBySpeciality(category?.name)
+         category.professionals = professionals
+         setIsLoading(false)
+      }
+   }, [])
 
-   const {setActiveCategory} = useCategoryStore();
+   useEffect(() => {
+      fetchProfessionals()
+   }, [])
 
- const {apiRequest: _ , isLoading} = useLoadingRequest({
-    apiFunc: async () => {
-      if(category !== undefined){
-           const professionals = await getProfessionalBySpeciality(category.name);
-           if(professionals) {
-            category.professionals = professionals;
-            setActiveCategory(category);
-           }
-        }
-    },
- });
-
- useEffect(() => {
-      _();
- }, [])
-
-
- return { isLoading };
-};
-export default useCategoriesViewModel;
+   return { isLoading }
+}
+export default useCategoriesViewModel
