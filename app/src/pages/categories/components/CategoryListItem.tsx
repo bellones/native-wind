@@ -2,12 +2,9 @@ import React from "react";
 import { ProfessionalType } from "../../../types/professional/professional_type";
 import { Avatar, Container, NormalText, Row, styles, Title } from "../../../utils/constants";
 
-type Props ={
+type Props = {
     item: ProfessionalType
 }
-
-
-
 export const CategoryListItem: React.FC<Props> = ({item}) => {
     return (
         <Row className="flex-row mt-2 items-center mb-2">
