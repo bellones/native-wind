@@ -10,8 +10,7 @@ import { HomeComponent } from './components/HomeComponent';
 import { HomeLoading } from './components/HomeLoading';
 
 export const HomeScreen: React.FC = () => {
-
-  const {isLoading} = useHomeViewModel();
+  const { isLoading } = useHomeViewModel();
   return (
     <Background className={'flex-1 bg-white h-full'}>
       <SafeContainer>
